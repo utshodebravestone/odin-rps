@@ -29,8 +29,7 @@ const getDrawResult = (playerState, computerState) => {
   }
 };
 
-const draw = () => {
-  let playerState = prompt("Chose a state between Rock, Paper and Scissor: ");
+const draw = (playerState, computerState) => {
   playerState = states.find(
     (state) => state.toLowerCase() === playerState.toLowerCase()
   );
@@ -41,7 +40,6 @@ const draw = () => {
       0,
     ];
   } else {
-    let computerState = getComputerState();
     return getDrawResult(playerState, computerState);
   }
 };
@@ -50,20 +48,35 @@ let playerScore = 0;
 let computerScore = 0;
 let playerScoreEl = document.querySelector("#player-score");
 let computerScoreEl = document.querySelector("#computer-score");
+let newGame = document.querySelector("#play");
+let clickableEls = document.querySelectorAll(".clickable");
 
-const play = () => {
-  const [message, ps, cs] = draw();
+const play = (playerState) => {
+  let computerState = getComputerState();
+  alert(`Computer choose: ${computerState}`);
+  const [message, ps, cs] = draw(playerState, computerState);
   playerScore += ps;
   computerScore += cs;
   playerScoreEl.innerHTML = playerScore;
   computerScoreEl.innerHTML = computerScore;
   if (ps > cs) {
-    alert(`You got the score. ${message}`);
+    alert(`${message} You got the score.`);
   } else if (cs > ps) {
-    alert(`Computer gets the score. ${message}`);
+    alert(`${message} Computer gets the score.`);
   } else {
-    alert(`It's a draw. ${message}`);
+    alert(`${message}. It's a draw. `);
   }
 };
 
-document.querySelector("#play").addEventListener("click", play);
+clickableEls.forEach((clickableEl) =>
+  clickableEl.addEventListener("click", () => {
+    play(clickableEl.innerHTML);
+  })
+);
+newGame.addEventListener("click", () => {
+  playerScore = 0;
+  computerScore = 0;
+  playerScoreEl.innerHTML = playerScore;
+  computerScoreEl.innerHTML = computerScore;
+});
+console.log(clickableEls);

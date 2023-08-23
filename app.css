@@ -24,6 +24,7 @@
 }
 
 #play {
+  margin-top: 16px;
   padding: 12px 32px;
   font-size: 16px;
   font-weight: bolder;
@@ -36,6 +37,36 @@
 }
 
 #play:hover {
+  color: rgb(25, 125, 225);
+  background-color: rgb(255, 250, 245);
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.actions-title {
+  margin-bottom: 16px;
+  font-size: 40px;
+  font-weight: 500;
+}
+
+.clickable {
+  padding: 12px 32px;
+  font-size: 16px;
+  font-weight: bolder;
+  background-color: rgb(25, 125, 225);
+  color: white;
+  border: 1px solid rgb(25, 125, 225);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: color 0.25s, background-color 0.25s;
+}
+
+.clickable:hover {
   color: rgb(25, 125, 225);
   background-color: rgb(255, 250, 245);
 }

@@ -9,7 +9,15 @@
   <body>
     <div class="game">
       <h1 class="game-title">Rock Paper Scissor</h1>
-      <button id="play">Play</button>
+
+      <div class="actions">
+        <h1 class="actions-title">Choose One</h1>
+        <div>
+          <button class="clickable">Paper</button>
+          <button class="clickable">Rock</button>
+          <button class="clickable">Scissor</button>
+        </div>
+      </div>
       <div class="score-board">
         <h2 class="score-board-title">Scores</h2>
         <p class="score">
@@ -21,6 +29,8 @@
           <span id="computer-score">0</span>
         </p>
       </div>
+
+      <button id="play">Restart the Game</button>
     </div>
     <script type="module" src="./app.js"></script>
   </body>
